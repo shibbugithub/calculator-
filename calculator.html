@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+<body>
+    <style>
+        body{
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(73, 71, 71);
+    display: flex;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.calci{
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0,0,10 rgb(0, 0, black);
+    border-radius: 10px;
+ }
+.buttons{
+    display: grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap: 10px;
+}
+input[type="text"]{
+    width:100%;
+    height: 40px;
+    text-align: right;
+    font-size: 25px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+button{
+    color: white;
+    background-color: black;
+    height: 50px;
+    cursor:pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 18px ;
+    border: none;
+}
+input{
+    background-color: lightgreen;
+}
+button:hover{
+    background-color: rgb(24, 22, 22);
+}
+.equal{
+    background-color: green;
+}
+.equal:hover{
+    background-color: rgb(40, 187, 40);
+}
+    </style>
+    <script>
+        function appendToResult(value){
+    document.getElementById("result").value += value;
+}
+function clearResult(){
+    document.getElementById("result").value ='0';
+}
+function mainResult(){
+    const result = document.getElementById("result");
+    try{
+        result.value = eval(result.value);
+    } catch(error){
+        result.value = "error";
+    }
+}
+
+    </script>
+    <div class="calci">
+        <input type="text" id="result" disabled placeholder="000000000000">
+        <div class="buttons">
+            <button onclick="appendToResult('7')">7</button>
+            <button onclick="appendToResult('8')">8</button>
+            <button onclick="appendToResult('9')">9</button>
+            <button onclick="clearResult('c')">C</button>
+            <button onclick="appendToResult('4')">4</button>
+            <button onclick="appendToResult('5')">5</button>
+            <button onclick="appendToResult('6')">6</button>
+            <button onclick="appendToResult('*')">*</button>
+            <button onclick="appendToResult('1')">1</button>
+            <button onclick="appendToResult('2')">2</button>
+            <button onclick="appendToResult('3')">3</button>
+            <button onclick="appendToResult('-')">-</button>
+            <button onclick="appendToResult('/')">/</button>
+            <button onclick="appendToResult('0')">0</button>
+            <button onclick="appendToResult('+')">+</button>
+            <button onclick="mainResult()" class="equal">=</button></div>
+        
+    </div>
+     
+</body>
+
+</html>
